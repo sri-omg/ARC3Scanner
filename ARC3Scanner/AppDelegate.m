@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ARC3Helper.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    
+    [[NSUserDefaults standardUserDefaults] registerDefaults:@{kReorderCornersKey: @YES,
+                                                              kMapZoomDegreesKey: @(0.0035),
+                                                              kBorderWhitenessKey: @(1.0),
+                                                              kBorderWidthKey: @(16),
+                                                              kPhotoTextOverlayKey: @"Have you seen this man?",
+                                                              }];
+    
     return YES;
 }
 

@@ -7,6 +7,7 @@
 //
 
 #import "ScannerViewController.h"
+#import "ARC3Helper.h"
 @import MapKit;
 @import CoreLocation;
 
@@ -25,16 +26,10 @@
     
     _showMapImage = YES;
     
-    _shadyPersonImage = [UIImage imageNamed: @"shady.jpg"];
-    
 //    [self.scannerView setVerboseLogging:YES];
     
     [self.scannerView setAnimateScanner:NO];
     [self.scannerView setDisplayCodeOutline:YES];
-    
-    [[NSUserDefaults standardUserDefaults] registerDefaults:@{kReorderCornersKey: @YES,
-                                                              kMapZoomDegreesKey: @(0.0035),
-                                                              }];
     
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
@@ -49,21 +44,32 @@
     [super viewDidAppear:animated];
     if (!self.scannerView.isCaptureSessionInProgress) {
         [self.scannerView startCaptureSession]; // Start the capture
+    } else {
+        if (!self.scannerView.isScanSessionInProgress) {
+            [self.scannerView startScanSession];
+        }
     }
     
     BOOL reorderCorners = [[NSUserDefaults standardUserDefaults] boolForKey:kReorderCornersKey];
     [[self.scannerView overlayImageView] setReorderCorners:!reorderCorners];
+    
+    
+    _shadyPersonImage = [ARC3Helper customPhotoImage];
+    if (!_shadyPersonImage) {
+        _shadyPersonImage = [UIImage imageNamed: @"shady.jpg"];
+    }
+    _shadyPersonImage = [ARC3Helper imageByDrawingBoundingCirlceOnImage:_shadyPersonImage];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-//    [self.scannerView stopCaptureSession];
+    [self.scannerView stopScanSession];
 }
 
 #pragma mark - RMScannerViewDelegate
 
 - (void)didScanCode:(NSString *)scannedCode onCodeType:(NSString *)codeType {
-    NSLog(@"scanned %@: %@", codeType, scannedCode);
+//    NSLog(@"scanned %@: %@", codeType, scannedCode);
     if ([scannedCode hasSuffix:@".com"]) {
         _showMapImage = NO;
         [[self.scannerView overlayImageView] setImage:_shadyPersonImage];
@@ -117,7 +123,7 @@
     options.mapType = MKMapTypeStandard;
     options.showsBuildings = YES;
     options.showsPointsOfInterest = NO;
-    options.size = CGSizeMake(300, 300);
+    options.size = CGSizeMake(kScannedImageSize, kScannedImageSize);
     
     CGFloat mapZoom = [[NSUserDefaults standardUserDefaults] floatForKey:kMapZoomDegreesKey];
     MKCoordinateSpan span;
@@ -138,7 +144,7 @@
                                        userPoint.y-location.horizontalAccuracy,
                                        location.horizontalAccuracy*2,
                                        location.horizontalAccuracy*2);
-            [[self.scannerView overlayImageView] setImage:[self imageByDrawingCircle:circle onImage:snapshot.image]];
+            [[self.scannerView overlayImageView] setImage:[ARC3Helper imageByDrawingCircle:circle onMapImage:snapshot.image]];
         }
     }];
 
@@ -151,49 +157,6 @@
 
 static inline double radians (double degrees) {return degrees * M_PI/180;}
 
-- (UIImage *)imageByDrawingCircle:(CGRect)circleRect onImage:(UIImage *)image
-{
-    UIGraphicsBeginImageContextWithOptions(image.size, NO, image.scale);
-    
-    // get the context for CoreGraphics and clip it
-    CGContextRef ctx = UIGraphicsGetCurrentContext();
-    UIBezierPath *boundingCircle = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, image.size.width, image.size.height)
-                                                              cornerRadius:MAX(image.size.width, image.size.height)];
-    CGContextAddPath(ctx, boundingCircle.CGPath);
-    CGContextClip(ctx);
-    
-    // draw original image into the context
-    [image drawAtPoint:CGPointZero];
-    
-    // draw border
-    [[[UIColor whiteColor] colorWithAlphaComponent:1] setStroke];
-    CGContextStrokeEllipseInRect(ctx, boundingCircle.bounds);
-    
-    // draw circle
-    [[[UIColor blueColor] colorWithAlphaComponent:0.0666] setFill];
-    CGContextFillEllipseInRect(ctx, circleRect);
-    [[[UIColor blueColor] colorWithAlphaComponent:0.25] setStroke];
-    CGContextStrokeEllipseInRect(ctx, circleRect);
-    
-    // draw center point
-    CGRect centerPoint = CGRectMake(CGRectGetMidX(circleRect)-4, CGRectGetMidY(circleRect)-4, 8, 8);
-    [[UIColor blueColor] setFill];
-    CGContextFillEllipseInRect(ctx, centerPoint);
-    [[UIColor whiteColor] setStroke];
-    CGContextStrokeEllipseInRect(ctx, centerPoint);
-    
-    // draw N for north
-    [[UIColor blackColor] setFill];
-    [@"N" drawAtPoint:CGPointMake(image.size.width/2, 0) withAttributes:@{NSFontAttributeName:[UIFont boldSystemFontOfSize:10]}];
-    
-    // make image out of bitmap context
-    UIImage *retImage = UIGraphicsGetImageFromCurrentImageContext();
-    
-    // free the context
-    UIGraphicsEndImageContext();
-    
-    return retImage;
-}
 
 
 @end

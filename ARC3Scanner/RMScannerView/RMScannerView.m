@@ -239,7 +239,7 @@
     
     // ADAM HACK
 //    [metadataOutput setMetadataObjectTypes:@[AVMetadataObjectTypeAztecCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeQRCode, AVMetadataObjectTypeUPCECode]];
-    [metadataOutput setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode, AVMetadataObjectTypeFace]];
+    [metadataOutput setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];//, AVMetadataObjectTypeFace]];
 }
 
 - (void)breakdownMetadataOutput {

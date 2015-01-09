@@ -19,6 +19,7 @@
 		0240CA8F1A44BEFF0097B877 /* RMOutlineBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 0240CA8C1A44BEFF0097B877 /* RMOutlineBox.m */; };
 		0240CA901A44BEFF0097B877 /* RMScannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0240CA8E1A44BEFF0097B877 /* RMScannerView.m */; };
 		0240CA931A44E22A0097B877 /* UIView+Quadrilateral.m in Sources */ = {isa = PBXBuildFile; fileRef = 0240CA921A44E22A0097B877 /* UIView+Quadrilateral.m */; };
+		025FBD3A1A6070640062746F /* ARC3Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 025FBD391A6070640062746F /* ARC3Helper.m */; };
 		661A2EB11A44FA8800ABA958 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 661A2EB01A44FA8800ABA958 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +56,8 @@
 		0240CA8E1A44BEFF0097B877 /* RMScannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMScannerView.m; sourceTree = "<group>"; };
 		0240CA911A44E22A0097B877 /* UIView+Quadrilateral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Quadrilateral.h"; sourceTree = "<group>"; };
 		0240CA921A44E22A0097B877 /* UIView+Quadrilateral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Quadrilateral.m"; sourceTree = "<group>"; };
+		025FBD381A6070640062746F /* ARC3Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARC3Helper.h; sourceTree = "<group>"; };
+		025FBD391A6070640062746F /* ARC3Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARC3Helper.m; sourceTree = "<group>"; };
 		661A2EB01A44FA8800ABA958 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -108,6 +111,8 @@
 				0240CA6C1A44BEBB0097B877 /* ScannerViewController.m */,
 				022F1F101A5F63CE007FBF6D /* SettingsTableViewController.h */,
 				022F1F111A5F63CE007FBF6D /* SettingsTableViewController.m */,
+				025FBD381A6070640062746F /* ARC3Helper.h */,
+				025FBD391A6070640062746F /* ARC3Helper.m */,
 				0240CA8A1A44BEFF0097B877 /* RMScannerView */,
 				0240CA711A44BEBB0097B877 /* Images.xcassets */,
 				0240CA731A44BEBB0097B877 /* LaunchScreen.xib */,
@@ -274,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				025FBD3A1A6070640062746F /* ARC3Helper.m in Sources */,
 				022F1F121A5F63CE007FBF6D /* SettingsTableViewController.m in Sources */,
 				0240CA6D1A44BEBB0097B877 /* ScannerViewController.m in Sources */,
 				0240CA8F1A44BEFF0097B877 /* RMOutlineBox.m in Sources */,

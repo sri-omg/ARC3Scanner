@@ -9,9 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "RMScannerView.h"
 
-#define kReorderCornersKey @"reorder-corners"
-#define kMapZoomDegreesKey @"map-zoom"
-
 @interface ScannerViewController : UIViewController <RMScannerViewDelegate>
 
 
