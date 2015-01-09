@@ -16,3 +16,5 @@ ARC3Scanner.xcodeproj/project.xcworkspace/xcuserdata/overholt.xcuserdatad/Worksp
 ARC3Scanner/libTestFlight.a
 
 *.mobileprovision
+
+ARC3Scanner.xcodeproj/project.xcworkspace/xcshareddata/ARC3Scanner.xccheckout
