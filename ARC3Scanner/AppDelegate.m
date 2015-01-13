@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "ARC3Helper.h"
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @interface AppDelegate ()
 
@@ -19,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    
+    [Fabric with:@[CrashlyticsKit]];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:@{kReorderCornersKey: @YES,
                                                               kMapZoomDegreesKey: @(0.0035),

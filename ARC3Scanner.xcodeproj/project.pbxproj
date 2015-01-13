@@ -20,6 +20,8 @@
 		0240CA901A44BEFF0097B877 /* RMScannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0240CA8E1A44BEFF0097B877 /* RMScannerView.m */; };
 		0240CA931A44E22A0097B877 /* UIView+Quadrilateral.m in Sources */ = {isa = PBXBuildFile; fileRef = 0240CA921A44E22A0097B877 /* UIView+Quadrilateral.m */; };
 		025FBD3A1A6070640062746F /* ARC3Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 025FBD391A6070640062746F /* ARC3Helper.m */; };
+		02A47E6B1A65E26500A8B9BC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A47E691A65E26500A8B9BC /* Crashlytics.framework */; };
+		02A47E6C1A65E26500A8B9BC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A47E6A1A65E26500A8B9BC /* Fabric.framework */; };
 		661A2EB11A44FA8800ABA958 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 661A2EB01A44FA8800ABA958 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +60,8 @@
 		0240CA921A44E22A0097B877 /* UIView+Quadrilateral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Quadrilateral.m"; sourceTree = "<group>"; };
 		025FBD381A6070640062746F /* ARC3Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARC3Helper.h; sourceTree = "<group>"; };
 		025FBD391A6070640062746F /* ARC3Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARC3Helper.m; sourceTree = "<group>"; };
+		02A47E691A65E26500A8B9BC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		02A47E6A1A65E26500A8B9BC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		661A2EB01A44FA8800ABA958 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -67,7 +71,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				020AB9291A48A28800808E83 /* libz.dylib in Frameworks */,
+				02A47E6B1A65E26500A8B9BC /* Crashlytics.framework in Frameworks */,
 				661A2EB11A44FA8800ABA958 /* MapKit.framework in Frameworks */,
+				02A47E6C1A65E26500A8B9BC /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +91,8 @@
 			isa = PBXGroup;
 			children = (
 				020AB9281A48A28800808E83 /* libz.dylib */,
+				02A47E691A65E26500A8B9BC /* Crashlytics.framework */,
+				02A47E6A1A65E26500A8B9BC /* Fabric.framework */,
 				661A2EB01A44FA8800ABA958 /* MapKit.framework */,
 				0240CA631A44BEBB0097B877 /* ARC3Scanner */,
 				0240CA7D1A44BEBB0097B877 /* ARC3ScannerTests */,
@@ -171,6 +179,7 @@
 				0240CA5D1A44BEBB0097B877 /* Sources */,
 				0240CA5E1A44BEBB0097B877 /* Frameworks */,
 				0240CA5F1A44BEBB0097B877 /* Resources */,
+				02A47E681A65E24F00A8B9BC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -271,6 +280,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [ \"${CONFIGURATION}\" = \"Release\" ]; then\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\nfi";
+		};
+		02A47E681A65E24F00A8B9BC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run e78c9258bc873d09be8ae7ff66558bc0b2e9203a 9e67183da0eb42d531ee0329f6c9820c2a2da483e2fc7cc4a62061d89bf453c4";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -411,6 +433,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ARC3Scanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -431,6 +457,10 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ARC3Scanner/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
