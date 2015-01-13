@@ -23,8 +23,8 @@
 }
 
 + (UIImage *)customPhotoImage {
-    NSString  *pngfile = [ARC3Helper customPhotoFilePath];
     if ([ARC3Helper customPhotoExists]) {
+        NSString  *pngfile = [ARC3Helper customPhotoFilePath];
         NSData *imageData = [NSData dataWithContentsOfFile:pngfile];
         return [UIImage imageWithData:imageData];
     } else {

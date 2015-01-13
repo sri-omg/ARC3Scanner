@@ -28,6 +28,12 @@ typedef NS_ENUM(NSInteger, ScannerSettingsPhotoRows) {
 @property (weak, nonatomic) IBOutlet UISlider *borderColorSlider;
 @property (weak, nonatomic) IBOutlet UITextField *photoTextField;
 @property (weak, nonatomic) IBOutlet UISlider *mapZoomSlider;
+
+@property (weak, nonatomic) IBOutlet UILabel *borderColorLabel;
+@property (weak, nonatomic) IBOutlet UILabel *borderColorDisplay;
+@property (weak, nonatomic) IBOutlet UILabel *borderWidthLabel;
+@property (weak, nonatomic) IBOutlet UILabel *borderWidthDisplay;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *borderWidthDisplayConstraint;
 @end
 
 @implementation SettingsTableViewController
@@ -42,7 +48,15 @@ typedef NS_ENUM(NSInteger, ScannerSettingsPhotoRows) {
     self.mapZoomSlider.value = mapZoom;
     
     self.borderWidthSlider.value = [[NSUserDefaults standardUserDefaults] floatForKey:kBorderWidthKey];
+    self.borderWidthLabel.text = [NSString stringWithFormat:@"Width %.0fpx", self.borderWidthSlider.value];
+    self.borderWidthDisplayConstraint.constant = self.borderWidthSlider.value;
+    
     self.borderColorSlider.value = [[NSUserDefaults standardUserDefaults] floatForKey:kBorderWhitenessKey];
+    self.borderColorLabel.text = [NSString stringWithFormat:@"White %.0f%%", self.borderColorSlider.value*100];
+    self.borderColorDisplay.backgroundColor = [UIColor colorWithWhite:self.borderColorSlider.value alpha:1];
+    self.borderColorDisplay.layer.borderWidth = 1;
+    self.borderColorDisplay.layer.borderColor = [UIColor blackColor].CGColor;
+    self.borderColorDisplay.layer.cornerRadius = CGRectGetHeight(self.borderColorDisplay.bounds)/2;
     
     self.photoTextField.text = [[NSUserDefaults standardUserDefaults] stringForKey:kPhotoTextOverlayKey];
 }
@@ -70,10 +84,14 @@ typedef NS_ENUM(NSInteger, ScannerSettingsPhotoRows) {
 
 - (IBAction)didChangeBorderColorSlider:(id)sender {
     [[NSUserDefaults standardUserDefaults] setFloat:self.borderColorSlider.value forKey:kBorderWhitenessKey];
+    self.borderColorLabel.text = [NSString stringWithFormat:@"White %.0f%%", self.borderColorSlider.value*100];
+    self.borderColorDisplay.backgroundColor = [UIColor colorWithWhite:self.borderColorSlider.value alpha:1];
 }
 
 - (IBAction)didChangeBorderWidthSlider:(id)sender {
     [[NSUserDefaults standardUserDefaults] setFloat:self.borderWidthSlider.value forKey:kBorderWidthKey];
+    self.borderWidthLabel.text = [NSString stringWithFormat:@"Width %.0fpx", self.borderWidthSlider.value];
+    self.borderWidthDisplayConstraint.constant = self.borderWidthSlider.value;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {

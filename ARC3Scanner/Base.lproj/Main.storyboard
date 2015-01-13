@@ -64,22 +64,27 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dHn-O4-V24" id="p6C-iV-eYT">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="16" minValue="0.0" maxValue="50" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X4q-ka-HrC">
-                                                    <rect key="frame" x="76" y="10" width="218" height="31"/>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="16" minValue="0.0" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="X4q-ka-HrC">
+                                                    <rect key="frame" x="96" y="10" width="197" height="31"/>
                                                     <connections>
                                                         <action selector="didChangeBorderWidthSlider:" destination="kP1-f5-XsB" eventType="valueChanged" id="T1l-cg-FrP"/>
                                                     </connections>
                                                 </slider>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Width   0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhZ-4c-MEN">
-                                                    <rect key="frame" x="8" y="15" width="65" height="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="666" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Width   0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhZ-4c-MEN">
+                                                    <rect key="frame" x="8" y="15" width="90" height="19"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="jQa-OC-eSB"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKW-4S-7ho">
-                                                    <rect key="frame" x="292" y="15" width="20" height="19"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="667" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NKW-4S-7ho">
+                                                    <rect key="frame" x="296" y="17" width="16" height="16"/>
+                                                    <color key="backgroundColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="XbU-nr-jee"/>
+                                                        <constraint firstAttribute="width" constant="16" id="XbU-nr-jee"/>
+                                                        <constraint firstAttribute="height" constant="16" id="lCE-Jh-NS0"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -88,11 +93,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="LhZ-4c-MEN" firstAttribute="leading" secondItem="p6C-iV-eYT" secondAttribute="leadingMargin" id="3S1-gb-0lN"/>
-                                                <constraint firstItem="NKW-4S-7ho" firstAttribute="leading" secondItem="X4q-ka-HrC" secondAttribute="trailing" id="4Mo-hP-b5V"/>
+                                                <constraint firstItem="NKW-4S-7ho" firstAttribute="leading" secondItem="X4q-ka-HrC" secondAttribute="trailing" constant="5" id="4Mo-hP-b5V"/>
                                                 <constraint firstItem="NKW-4S-7ho" firstAttribute="trailing" secondItem="p6C-iV-eYT" secondAttribute="trailingMargin" id="A4H-z2-1j7"/>
                                                 <constraint firstAttribute="centerY" secondItem="LhZ-4c-MEN" secondAttribute="centerY" id="JrE-Mm-7Up"/>
                                                 <constraint firstAttribute="centerY" secondItem="X4q-ka-HrC" secondAttribute="centerY" id="Rhw-1w-Y0i"/>
-                                                <constraint firstItem="X4q-ka-HrC" firstAttribute="leading" secondItem="LhZ-4c-MEN" secondAttribute="trailing" constant="5" id="bQn-jn-QvH"/>
+                                                <constraint firstItem="X4q-ka-HrC" firstAttribute="leading" secondItem="LhZ-4c-MEN" secondAttribute="trailing" id="bQn-jn-QvH"/>
                                                 <constraint firstAttribute="centerY" secondItem="NKW-4S-7ho" secondAttribute="centerY" id="kaa-5i-kYF"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -102,43 +107,27 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JDm-3I-GLj" id="B1c-XX-PmF">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qab-cY-Gcm">
-                                                    <rect key="frame" x="76" y="10" width="218" height="31"/>
+                                                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Qab-cY-Gcm">
+                                                    <rect key="frame" x="96" y="10" width="197" height="31"/>
                                                     <connections>
                                                         <action selector="didChangeBorderColorSlider:" destination="kP1-f5-XsB" eventType="valueChanged" id="IZF-dI-ZVv"/>
                                                     </connections>
                                                 </slider>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u83-AP-ONE">
-                                                    <rect key="frame" x="8" y="13" width="65" height="24"/>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="Color">
-                                                            <attributes>
-                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <font key="NSFont" size="16" name="HelveticaNeue"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content=" ">
-                                                            <attributes>
-                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <font key="NSFont" size="20" name="HelveticaNeue"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                        <fragment content="●">
-                                                            <attributes>
-                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <font key="NSFont" size="20" name="HiraKakuProN-W3"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="666" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="White 100%" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u83-AP-ONE">
+                                                    <rect key="frame" x="8" y="15" width="90" height="19"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="90" id="Blb-p9-nNs"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="○" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxv-at-4sy">
-                                                    <rect key="frame" x="292" y="13" width="20" height="24"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="667" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxv-at-4sy">
+                                                    <rect key="frame" x="296" y="17" width="16" height="16"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="yIL-yZ-yAN"/>
+                                                        <constraint firstAttribute="height" constant="16" id="K77-uT-MAS"/>
+                                                        <constraint firstAttribute="width" constant="16" id="yIL-yZ-yAN"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -151,8 +140,8 @@
                                                 <constraint firstAttribute="centerY" secondItem="gxv-at-4sy" secondAttribute="centerY" id="W3V-xW-3Uy"/>
                                                 <constraint firstAttribute="centerY" secondItem="u83-AP-ONE" secondAttribute="centerY" id="W3b-aE-GJX"/>
                                                 <constraint firstAttribute="centerY" secondItem="Qab-cY-Gcm" secondAttribute="centerY" id="aoJ-gj-yNA"/>
-                                                <constraint firstItem="gxv-at-4sy" firstAttribute="leading" secondItem="Qab-cY-Gcm" secondAttribute="trailing" id="mm8-DT-cVm"/>
-                                                <constraint firstItem="Qab-cY-Gcm" firstAttribute="leading" secondItem="u83-AP-ONE" secondAttribute="trailing" constant="5" id="vSw-0U-bd0"/>
+                                                <constraint firstItem="gxv-at-4sy" firstAttribute="leading" secondItem="Qab-cY-Gcm" secondAttribute="trailing" constant="5" id="mm8-DT-cVm"/>
+                                                <constraint firstItem="Qab-cY-Gcm" firstAttribute="leading" secondItem="u83-AP-ONE" secondAttribute="trailing" id="vSw-0U-bd0"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -171,23 +160,16 @@
                                                         <action selector="didChangeMapZoomSlider:" destination="kP1-f5-XsB" eventType="valueChanged" id="prv-xQ-VhT"/>
                                                     </connections>
                                                 </slider>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32x-Xp-Up7">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32x-Xp-Up7">
                                                     <rect key="frame" x="8" y="13" width="20" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="POk-qW-Zny"/>
                                                     </constraints>
-                                                    <attributedString key="attributedText">
-                                                        <fragment content="−">
-                                                            <attributes>
-                                                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                <font key="NSFont" size="20" name="HelveticaNeue"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kou-ik-tlG">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="−" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kou-ik-tlG">
                                                     <rect key="frame" x="292" y="13" width="20" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="8Zm-u9-ywW"/>
@@ -336,7 +318,12 @@
                     <navigationItem key="navigationItem" title="Settings" id="BEp-fV-O32"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="borderColorDisplay" destination="gxv-at-4sy" id="Gzn-pl-IWC"/>
+                        <outlet property="borderColorLabel" destination="u83-AP-ONE" id="EoO-tP-UFv"/>
                         <outlet property="borderColorSlider" destination="Qab-cY-Gcm" id="XSs-NY-bAs"/>
+                        <outlet property="borderWidthDisplay" destination="NKW-4S-7ho" id="z1a-AZ-9Po"/>
+                        <outlet property="borderWidthDisplayConstraint" destination="lCE-Jh-NS0" id="s7b-jE-Wqi"/>
+                        <outlet property="borderWidthLabel" destination="LhZ-4c-MEN" id="GYg-nC-Qgv"/>
                         <outlet property="borderWidthSlider" destination="X4q-ka-HrC" id="MNi-ZQ-z02"/>
                         <outlet property="mapZoomSlider" destination="GQV-1W-9wE" id="9ZT-9x-o2L"/>
                         <outlet property="photoTextField" destination="Z9e-rQ-ivr" id="yay-3C-R11"/>
